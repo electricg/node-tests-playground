@@ -4,13 +4,18 @@
   "description": "Node.js tests playground",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "./node_modules/.bin/jshint . --exclude-path .gitignore --reporter=./node_modules/jshint-full-path/index.js",
+    "pretest": "npm run-script lint",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/{**,**/*}/*.test.js",
+    "posttest": "./node_modules/.bin/istanbul check-coverage"
   },
   "author": "Giulia Alfonsi",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.3.3",
     "istanbul": "^0.4.2",
     "jshint": "^2.9.1",
+    "jshint-full-path": "^1.1.1",
     "mocha": "^2.4.5",
     "mockgoose": "^5.3.3",
     "mongoose": "^4.4.6",
