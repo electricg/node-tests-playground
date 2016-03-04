@@ -8,9 +8,10 @@ var Schema = mongoose.Schema;
 
 describe('Mocking database', function() {
   var collectionName = 'tests';
+  var collection = db.db.collection(collectionName);
 
 
-  before(function(done) {    
+  before(function(done) {
     done();
   });
 
@@ -72,7 +73,6 @@ describe('Mocking database', function() {
 
 
     it('should get collection', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.collectionName.should.equal(collectionName);
       done();
     });
@@ -83,7 +83,6 @@ describe('Mocking database', function() {
   describe('MongoDB Driver functionalities using callbacks', function() {
 
     it('should insert document', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.insert({ a: 1 }, function(err, res) {
         if (err) {
           done(err);
@@ -98,7 +97,6 @@ describe('Mocking database', function() {
 
 
     it('should update document', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.insert({ a: 1 }, function(err, res) {
         if (err) {
           done(err);
@@ -122,7 +120,6 @@ describe('Mocking database', function() {
 
     it('should find a single document', function(done) {
       var id;
-      var collection = db.db.collection(collectionName);
       collection.insert({ a: 1 }, function(err, res) {
         if (err) {
           done(err);
@@ -143,7 +140,6 @@ describe('Mocking database', function() {
 
 
     it('should find multiple documents', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.insert({ a: 111 }, function(err, res) {
         if (err) {
           done(err);
@@ -184,7 +180,6 @@ describe('Mocking database', function() {
 
 
     it('should find all documents', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.insert({ b: 222 }, function(err, res) {
         if (err) {
           done(err);
@@ -225,7 +220,6 @@ describe('Mocking database', function() {
 
 
     it('should aggregate documents', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.insert({ b: 222 }, function(err, res) {
         if (err) {
           done(err);
@@ -267,7 +261,6 @@ describe('Mocking database', function() {
 
     it('should remove document', function(done) {
       var id;
-      var collection = db.db.collection(collectionName);
       collection.insert({ a: 1 }, function(err, res) {
         if (err) {
           done(err);
@@ -294,7 +287,6 @@ describe('Mocking database', function() {
   describe('MongoDB Driver functionalities using promises', function() {
 
     it('should insert document', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.insert({ a: 1 })
       .then(function(res) {
         res.result.ok.should.equal(1);
@@ -308,7 +300,6 @@ describe('Mocking database', function() {
 
 
     it('should update document', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.insert({ a: 1 })
       .then(function(res) {
         res.result.ok.should.equal(1);
@@ -329,7 +320,6 @@ describe('Mocking database', function() {
 
     it('should find a single document', function(done) {
       var id;
-      var collection = db.db.collection(collectionName);
       collection.insert({ a: 1 })
       .then(function(res) {
         res.result.ok.should.equal(1);
@@ -350,7 +340,6 @@ describe('Mocking database', function() {
 
 
     it('should find multiple documents', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.insert({ a: 111 })
       .then(function(res) {
         res.result.ok.should.equal(1);
@@ -377,7 +366,6 @@ describe('Mocking database', function() {
 
 
     it('should find all documents', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.insert({ b: 222 })
       .then(function(res) {
         res.result.ok.should.equal(1);
@@ -404,7 +392,6 @@ describe('Mocking database', function() {
 
 
     it('should aggregate documents', function(done) {
-      var collection = db.db.collection(collectionName);
       collection.insert({ b: 222 })
       .then(function(res) {
         res.result.ok.should.equal(1);
@@ -432,7 +419,6 @@ describe('Mocking database', function() {
 
     it('should remove document', function(done) {
       var id;
-      var collection = db.db.collection(collectionName);
       collection.insert({ a: 1 })
       .then(function(res) {
         res.result.ok.should.equal(1);
