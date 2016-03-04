@@ -1,0 +1,22 @@
+{
+  "name": "node-tests-playground",
+  "version": "0.0.1",
+  "description": "Node.js tests playground",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Giulia Alfonsi",
+  "license": "MIT",
+  "dependencies": {
+    "istanbul": "^0.4.2",
+    "jshint": "^2.9.1",
+    "mocha": "^2.4.5",
+    "mockgoose": "^5.3.3",
+    "mongoose": "^4.4.6",
+    "nock": "^7.2.2",
+    "rewire": "^2.5.1",
+    "should": "^8.2.2",
+    "sinon": "^1.17.3"
+  }
+}
